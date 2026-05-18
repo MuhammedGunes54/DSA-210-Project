@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economic Prosperity & Football Success | Muhammed Mustafa Güneş</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: #0d1117; color: #e6edf3; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+  background: rgba(13,17,23,0.95); backdrop-filter: blur(10px);
+  border-bottom: 1px solid #21262d;
+}
+.nav-logo { font-size: 15px; font-weight: 700; color: #58a6ff; display: flex; align-items: center; gap: 8px; }
+.nav-logo span { color: #e6edf3; font-weight: 400; }
+.nav-links { display: flex; gap: 4px; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: 6px;
+  color: #8b949e; text-decoration: none; transition: all 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: #e6edf3; background: #21262d; }
+
+#hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 80px 80px 60px; gap: 60px; justify-content: center;
+  background: #0d1117; position: relative; overflow: hidden;
+}
+.hero-glow {
+  position: absolute; top: -150px; left: -100px; width: 500px; height: 500px;
+  border-radius: 50%; background: radial-gradient(circle, rgba(88,166,255,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-left { flex: 0 0 760px; max-width: 760px; z-index: 1; }
+.hero-right { flex: 0 0 300px; display: flex; justify-content: center; align-items: center; z-index: 1; }
+.hero-photo {
+  width: 260px; height: 260px; border-radius: 50%;
+  object-fit: cover; object-position: center top;
+  border: 3px solid #30363d;
+  box-shadow: 0 0 0 1px rgba(88,166,255,0.15), 0 20px 60px rgba(0,0,0,0.6);
+}
+.hero-tag {
+  font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #58a6ff; margin-bottom: 16px; display: block;
+}
+h1 { font-size: clamp(32px, 4.5vw, 56px); font-weight: 800; line-height: 1.15; color: #e6edf3; margin-bottom: 16px; }
+h1 .accent { color: #58a6ff; }
+.hero-desc { font-size: 16px; line-height: 1.7; color: #8b949e; max-width: 520px; margin-bottom: 36px; }
+.hero-stats { display: flex; margin-bottom: 36px; }
+.stat-box { padding: 16px 24px; border: 1px solid #21262d; background: #161b22; }
+.stat-box:first-child { border-radius: 8px 0 0 8px; }
+.stat-box:last-child { border-radius: 0 8px 8px 0; }
+.stat-box + .stat-box { border-left: none; }
+.stat-num { font-size: 26px; font-weight: 800; color: #58a6ff; line-height: 1; }
+.stat-label { font-size: 11px; color: #6e7681; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+.hero-btns { display: flex; gap: 12px; }
+.btn-p { padding: 9px 18px; background: #238636; color: #fff; border: 1px solid #2ea043; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+.btn-p:hover { background: #2ea043; }
+.btn-s { padding: 9px 18px; background: transparent; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+.btn-s:hover { background: #21262d; }
+
+section { padding: 80px 80px; border-top: 1px solid #21262d; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #58a6ff; margin-bottom: 10px; }
+h2 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 800; color: #e6edf3; margin-bottom: 14px; line-height: 1.2; }
+h2 .a { color: #58a6ff; }
+.sdesc { font-size: 15px; line-height: 1.7; color: #8b949e; max-width: 660px; margin-bottom: 36px; }
+
+.card { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 24px; }
+.card p { font-size: 14px; color: #c9d1d9; line-height: 1.75; margin-bottom: 12px; }
+.card p:last-child { margin-bottom: 0; }
+
+.moments-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 28px 0 36px; }
+.moment { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 22px; transition: border-color 0.2s, transform 0.2s; }
+.moment:hover { border-color: #58a6ff; transform: translateY(-2px); }
+.moment .mi { font-size: 26px; margin-bottom: 10px; }
+.moment .mt { font-size: 13px; font-weight: 700; color: #58a6ff; margin-bottom: 8px; }
+.moment p { font-size: 13px; color: #8b949e; line-height: 1.6; }
+
+.hypo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+.hypo { background: #161b22; border: 1px solid #21262d; border-left: 4px solid #58a6ff; border-radius: 8px; padding: 22px; }
+.hypo.h0 { border-left-color: #6e7681; }
+.hypo h3 { font-size: 12px; font-weight: 700; color: #58a6ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.hypo.h0 h3 { color: #6e7681; }
+.hypo p { font-size: 14px; color: #8b949e; line-height: 1.6; margin: 0; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+.dc { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 24px; }
+.dc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.dc-flag { font-size: 22px; }
+.dc-title { font-size: 17px; font-weight: 700; color: #e6edf3; }
+.di { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #21262d; font-size: 13px; color: #8b949e; }
+.di:last-child { border-bottom: none; }
+.dv { font-family: 'SF Mono', monospace; font-size: 11px; color: #58a6ff; background: rgba(88,166,255,0.1); padding: 2px 8px; border-radius: 4px; }
+
+.steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 28px; }
+.step { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 22px; }
+.sn { font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.step h3 { font-size: 14px; font-weight: 700; color: #e6edf3; margin-bottom: 8px; }
+.step p { font-size: 13px; color: #8b949e; line-height: 1.6; }
+
+.tw { overflow-x: auto; margin-top: 24px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #6e7681; padding: 11px 14px; text-align: left; border-bottom: 1px solid #21262d; background: #161b22; }
+td { padding: 11px 14px; border-bottom: 1px solid #161b22; color: #c9d1d9; }
+tr:hover td { background: #161b22; }
+.rp { color: #3fb950; font-family: monospace; font-weight: 600; }
+.rn { color: #f85149; font-family: monospace; font-weight: 600; }
+.by { display: inline-block; padding: 2px 9px; border-radius: 12px; font-size: 11px; font-weight: 600; background: rgba(63,185,80,0.15); color: #3fb950; }
+.bn { display: inline-block; padding: 2px 9px; border-radius: 12px; font-size: 11px; font-weight: 600; background: rgba(248,81,73,0.12); color: #f85149; }
+
+.ml-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-top: 28px; }
+.mlc { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 24px; }
+.mlc-lbl { font-size: 12px; font-weight: 600; color: #6e7681; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.mlc h3 { font-size: 15px; font-weight: 700; color: #e6edf3; margin-bottom: 16px; }
+.big-n { font-size: 48px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+.big-sub { font-size: 12px; color: #6e7681; margin-bottom: 16px; }
+.btrack { background: #21262d; border-radius: 4px; height: 5px; margin-bottom: 18px; overflow: hidden; }
+.bfill { height: 100%; border-radius: 4px; transition: width 1.4s ease; }
+.mlist { border-top: 1px solid #21262d; padding-top: 14px; }
+.mrow { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 13px; color: #8b949e; }
+.mv { font-family: monospace; color: #58a6ff; }
+
+.cg { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 28px; }
+.cc { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 22px; transition: border-color 0.2s; }
+.cc:hover { border-color: #30363d; }
+.cc .ci { font-size: 22px; margin-bottom: 10px; }
+.cc h3 { font-size: 14px; font-weight: 700; color: #e6edf3; margin-bottom: 8px; }
+.cc p { font-size: 13px; color: #8b949e; line-height: 1.6; }
+
+.ll { list-style: none; margin-top: 20px; }
+.ll li { padding: 12px 0; border-bottom: 1px solid #21262d; font-size: 14px; color: #8b949e; display: flex; gap: 12px; line-height: 1.6; }
+.ll li::before { content: '→'; color: #58a6ff; flex-shrink: 0; font-family: monospace; }
+
+.sg { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 24px; }
+.sc { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 16px 18px; }
+.sc h4 { font-size: 13px; font-weight: 600; color: #58a6ff; margin-bottom: 6px; }
+.sc p { font-size: 12px; color: #6e7681; line-height: 1.6; margin: 0; }
+
+.disc { background: rgba(88,166,255,0.05); border: 1px solid rgba(88,166,255,0.18); border-radius: 8px; padding: 18px 22px; margin-top: 28px; }
+.disc h4 { font-size: 12px; font-weight: 700; color: #58a6ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.disc p { font-size: 13px; color: #8b949e; line-height: 1.6; margin: 0; }
+.xbtn {
+  padding: 8px 16px; border-radius: 6px; border: 1px solid #30363d;
+  background: transparent; color: #8b949e; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+}
+.xbtn:hover { background: #21262d; color: #e6edf3; }
+.xbtn.active { background: #238636; color: #fff; border-color: #2ea043; }
+
+footer { padding: 28px 80px; border-top: 1px solid #21262d; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #6e7681; }
+footer strong { color: #8b949e; }
+
+.fade { opacity: 0; transform: translateY(18px); transition: opacity 0.6s, transform 0.6s; }
+.fade.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  nav { padding: 0 16px; } .nav-links { display: none; }
+  #hero { flex-direction: column-reverse; padding: 100px 20px 60px; gap: 32px; }
+  .hero-right { flex: 0; }
+  .hero-photo { width: 160px; height: 160px; }
+  section { padding: 56px 20px; }
+  .two-col, .ml-grid, .hypo-grid, .steps-grid { grid-template-columns: 1fr; }
+  .moments-grid, .cg, .sg { grid-template-columns: 1fr; }
+  .hero-stats { flex-wrap: wrap; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">⚽ <span>Economy &amp; Football</span></div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#data">Data</a></li>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#ml">ML Results</a></li>
+    <li><a href="#findings">Findings</a></li>
+    <li><a href="#explorer">Explorer</a></li>
+    <li><a href="#conclusions">Conclusions</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+  <img src="avatar.png" alt="MMG" style="width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #30363d;margin-left:16px;">
+</nav>
+
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-left">
+    <span class="hero-tag">DSA 210 · Data Science Term Project · Spring 2026</span>
+    <h1>Economic Prosperity<br>& <span class="accent">Football Success</span><br>Turkey & England</h1>
+    <p class="hero-desc">A 31-year data science investigation asking: does a nation's economic health determine how its football clubs and national team perform on the European stage?</p>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-num">128</div><div class="stat-label">ML Data Points</div></div>
+      <div class="stat-box"><div class="stat-num">31</div><div class="stat-label">Years of Data</div></div>
+      <div class="stat-box"><div class="stat-num">10</div><div class="stat-label">Football Clubs</div></div>
+      <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">ML Models</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#motivation" class="btn-p">📖 Read the Story</a>
+      <a href="#explorer" class="btn-s">✨ Try Explorer</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px;max-width:760px;">
+      <div style="background:#161b22;border:1px solid #21262d;border-left:4px solid #58a6ff;border-radius:8px;padding:20px 22px;">
+        <div style="font-size:11px;font-weight:700;color:#58a6ff;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">H₁ — Alternative Hypothesis</div>
+        <p style="font-size:14px;color:#8b949e;line-height:1.6;margin:0;">Stronger economic conditions are positively associated with better international football performance (ρ &gt; 0, one-tailed, α = 0.05).</p>
+      </div>
+      <div style="background:#161b22;border:1px solid #21262d;border-left:4px solid #6e7681;border-radius:8px;padding:20px 22px;">
+        <div style="font-size:11px;font-weight:700;color:#6e7681;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">H₀ — Null Hypothesis</div>
+        <p style="font-size:14px;color:#8b949e;line-height:1.6;margin:0;">There is no statistically significant linear correlation between economic indicators and football success (ρ = 0).</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="motivation">
+  <div class="eyebrow">01 · Motivation</div>
+  <h2>Why Football &amp; <span class="a">Economy?</span></h2>
+
+  <div class="moments-grid fade">
+    <div class="moment">
+      <div class="mi">🏆</div>
+      <div class="mt">Galatasaray — 2000 UEFA Cup &amp; Super Cup</div>
+      <p>Galatasaray became the first Turkish club to win a major European trophy, defeating Arsenal in the UEFA Cup Final, then beating Real Madrid in the Super Cup.</p>
+    </div>
+    <div class="moment">
+      <div class="mi">⭐</div>
+      <div class="mt">Beşiktaş — 2017/18 UCL Group Leader</div>
+      <p>Beşiktaş became the first and only Turkish club to top their Champions League group stage unbeaten — a historic feat in Turkish football history.</p>
+    </div>
+    <div class="moment">
+      <div class="mi">🥉</div>
+      <div class="mt">Turkey — 2002 World Cup 3rd Place</div>
+      <p>Turkey finished 3rd at the 2002 FIFA World Cup — the best international result in Turkish football history, coinciding with a period of relative economic stability.</p>
+    </div>
+  </div>
+
+  <div class="card fade">
+    <p>Football clubs live and die by their budgets. A world-class striker, a seasoned coach, a state-of-the-art training facility — all of it costs money. And where does that money ultimately come from? In large part, from the broader economic environment a club operates in. A strong national currency means cheaper foreign transfers. Low inflation preserves purchasing power. Healthy GDP growth fuels sponsorship deals and stadium revenues.</p>
+    <p>As a lifelong football fan from Turkey, I grew up watching Galatasaray win the UEFA Cup and Beşiktaş dominate their Champions League group — achievements that felt almost mythical. But I also watched those eras fade as Turkey's economy entered turbulence. Was it just a coincidence? I wanted to find out whether a club's international success is genuinely tied to the economic health of the country it calls home.</p>
+    <p>This project puts that question to a rigorous data science test — 31 years of Turkish football and economic data, compared against England's Premier League Big 6, to understand whether the path to European glory runs through the economy.</p>
+  </div>
+
+</section>
+
+<section id="data">
+  <div class="eyebrow">02 · Data Sources</div>
+  <h2>Two Countries, <span class="a">128 Data Points</span></h2>
+  <p class="sdesc">Each country contributes 64 half-year periods (H1: Jan–Jun, H2: Jul–Dec). A composite Economic Health Index was built by normalising and averaging three indicators: exchange rate, GDP growth, and CPI inflation.</p>
+
+  <div class="two-col">
+    <div class="dc fade">
+      <div class="dc-head"><div class="dc-flag">🇹🇷</div><div class="dc-title">Turkey</div></div>
+      <div class="di">Timeframe <span class="dv">1993 – 2024</span></div>
+      <div class="di">Data points <span class="dv">64 half-years</span></div>
+      <div class="di">Exchange rate <span class="dv">USD/TRY (TCMB)</span></div>
+      <div class="di">GDP &amp; CPI <span class="dv">World Bank / TurkStat</span></div>
+      <div class="di">Galatasaray <span class="dv">UEFA pts</span></div>
+      <div class="di">Fenerbahçe <span class="dv">UEFA pts</span></div>
+      <div class="di">Beşiktaş <span class="dv">UEFA pts</span></div>
+      <div class="di">Trabzonspor <span class="dv">UEFA pts</span></div>
+      <div class="di">National team <span class="dv">FIFA ranking</span></div>
+    </div>
+    <div class="dc fade">
+      <div class="dc-head"><div class="dc-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div><div class="dc-title">England</div></div>
+      <div class="di">Timeframe <span class="dv">1993 – 2024</span></div>
+      <div class="di">Data points <span class="dv">64 half-years</span></div>
+      <div class="di">Exchange rate <span class="dv">GBP/USD (Bank of England)</span></div>
+      <div class="di">GDP &amp; CPI <span class="dv">World Bank / ONS</span></div>
+      <div class="di">Man City / Man Utd <span class="dv">UEFA pts</span></div>
+      <div class="di">Arsenal / Liverpool <span class="dv">UEFA pts</span></div>
+      <div class="di">Tottenham / Chelsea <span class="dv">UEFA pts</span></div>
+      <div class="di">National team <span class="dv">FIFA ranking</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="methodology">
+  <div class="eyebrow">03 · Methodology</div>
+  <h2>Four-Phase <span class="a">Analysis Pipeline</span></h2>
+  <p class="sdesc">The analysis follows a structured data science pipeline from exploration to prediction.</p>
+  <div class="steps-grid">
+    <div class="step fade"><div class="sn">Step 01</div><h3>EDA &amp; Visualisation</h3><p>Time-series plots of exchange rates, per-club UEFA coefficients, national team FIFA index, and the composite economic health index for both countries.</p></div>
+    <div class="step fade"><div class="sn">Step 02</div><h3>Hypothesis Testing</h3><p>Pearson r (one-tailed, α = 0.05) with 95% Fisher CI, Spearman ρ as non-parametric backup, and normality via D'Agostino K² test.</p></div>
+    <div class="step fade"><div class="sn">Step 03</div><h3>OLS Regression</h3><p>Ordinary Least Squares regressing total club UEFA points on economic index, GDP growth, and CPI inflation to quantify explanatory power (R²).</p></div>
+    <div class="step fade"><div class="sn">Step 04</div><h3>Machine Learning</h3><p>K-Means clustering (k=3, elbow method), PCA visualisation, and three supervised classifiers with 5-fold stratified cross-validation.</p></div>
+  </div>
+</section>
+
+<section id="ml">
+  <div class="eyebrow">04 · Machine Learning Results</div>
+  <h2>Classification &amp; <span class="a">Clustering</span></h2>
+  <p class="sdesc">Three supervised classifiers predicting "high" vs "low" club success from economic features, using 5-fold stratified cross-validation. Combining both countries to 128 rows substantially improved accuracy.</p>
+  <div class="ml-grid">
+    <div class="mlc fade">
+      <div class="mlc-lbl">🇹🇷 Turkey — 64 rows</div>
+      <h3>Turkish Economy → Club Success</h3>
+      <div class="big-n" style="color:#f0883e">68.9%</div>
+      <div class="big-sub">Best CV Accuracy (Random Forest)</div>
+      <div class="btrack"><div class="bfill" data-w="68.9" style="width:0%;background:#f0883e"></div></div>
+      <div class="mlist">
+        <div class="mrow"><span>Logistic Regression</span><span class="mv">0.674</span></div>
+        <div class="mrow"><span>Random Forest</span><span class="mv">0.688</span></div>
+        <div class="mrow"><span>Gradient Boosting</span><span class="mv">0.688</span></div>
+        <div class="mrow" style="color:#6e7681"><span>Majority baseline</span><span class="mv" style="color:#6e7681">0.609</span></div>
+      </div>
+    </div>
+    <div class="mlc fade">
+      <div class="mlc-lbl">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England — 64 rows</div>
+      <h3>English Economy → Club Success</h3>
+      <div class="big-n" style="color:#58a6ff">86.0%</div>
+      <div class="big-sub">Best CV Accuracy (Random Forest)</div>
+      <div class="btrack"><div class="bfill" data-w="86" style="width:0%;background:#58a6ff"></div></div>
+      <div class="mlist">
+        <div class="mrow"><span>Logistic Regression</span><span class="mv">0.806</span></div>
+        <div class="mrow"><span>Random Forest</span><span class="mv">0.860</span></div>
+        <div class="mrow"><span>Gradient Boosting</span><span class="mv">0.845</span></div>
+        <div class="mrow" style="color:#6e7681"><span>Majority baseline</span><span class="mv" style="color:#6e7681">0.594</span></div>
+      </div>
+    </div>
+    <div class="mlc fade">
+      <div class="mlc-lbl">⚽ Combined TR + ENG — 128 rows</div>
+      <h3>Combined Dataset Classification</h3>
+      <div class="big-n" style="color:#3fb950">90.7%</div>
+      <div class="big-sub">Best CV Accuracy (Random Forest)</div>
+      <div class="btrack"><div class="bfill" data-w="90.7" style="width:0%;background:#3fb950"></div></div>
+      <div class="mlist">
+        <div class="mrow"><span>Logistic Regression</span><span class="mv">0.851</span></div>
+        <div class="mrow"><span>Random Forest</span><span class="mv">0.907</span></div>
+        <div class="mrow"><span>Gradient Boosting</span><span class="mv">0.891</span></div>
+        <div class="mrow" style="color:#6e7681"><span>Majority baseline</span><span class="mv" style="color:#6e7681">0.516</span></div>
+      </div>
+    </div>
+    <div class="mlc fade">
+      <div class="mlc-lbl">🌍 Country Prediction (TR vs ENG)</div>
+      <h3>Can We Tell Turkey from England?</h3>
+      <div class="big-n" style="color:#a5d6ff">100%</div>
+      <div class="big-sub">Random Forest CV Accuracy</div>
+      <div class="btrack"><div class="bfill" data-w="100" style="width:0%;background:#a5d6ff"></div></div>
+      <p style="font-size:13px;color:#8b949e;line-height:1.6;margin-top:14px;">The model perfectly distinguishes Turkey from England using only economic and football features — confirming the two economies are structurally distinct. A volatile lira and high inflation produce fundamentally different footballing outcomes than a stable pound.</p>
+    </div>
+  </div>
+  <div class="card fade" style="margin-top:20px;">
+    <p><strong style="color:#e6edf3">K-Means Clustering (k=3):</strong> Three natural eras identified — 1990s hyper-inflation era (low UEFA points), 2000s stability era (peak Turkish football matching GS and BJK's golden periods), and 2020s high-currency era. PCA explained 57% of variance in 2 components.</p>
+  </div>
+</section>
+
+<section id="findings">
+  <div class="eyebrow">05 · Hypothesis Testing Results</div>
+  <h2>Correlation <span class="a">Findings</span></h2>
+  <p class="sdesc">Turkey's club success shows a statistically significant positive link to economic conditions. England's clubs, driven by foreign ownership and global TV revenue, show a different pattern.</p>
+  <div class="tw fade">
+    <table>
+      <thead>
+        <tr><th>Country</th><th>Pair</th><th>r</th><th>p (one-tail)</th><th>R²</th><th>Effect</th><th>Decision</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>🇹🇷</td><td>Economic Index × Total Club UEFA</td><td class="rp">+0.225</td><td>0.037</td><td>5.1%</td><td>Small</td><td><span class="by">REJECT H₀</span></td></tr>
+        <tr><td>🇹🇷</td><td>Economic Index × National Team</td><td class="rp">+0.166</td><td>0.096</td><td>2.7%</td><td>Small</td><td><span class="bn">KEEP H₀</span></td></tr>
+        <tr><td>🇹🇷</td><td>USD/TRY × Total Club UEFA</td><td class="rp">+0.428</td><td>0.0002</td><td>18.3%</td><td>Medium</td><td><span class="by">REJECT H₀</span></td></tr>
+        <tr><td>🇹🇷</td><td>Inflation × Total Club UEFA</td><td class="rn">−0.590</td><td>—</td><td>34.8%</td><td>Large (neg)</td><td><span class="bn">KEEP H₀</span></td></tr>
+        <tr><td>🇹🇷</td><td>Economic Index × Beşiktaş</td><td class="rp">+0.312</td><td>0.006</td><td>9.7%</td><td>Medium</td><td><span class="by">REJECT H₀</span></td></tr>
+        <tr><td>🇹🇷</td><td>Economic Index × Fenerbahçe</td><td class="rp">+0.254</td><td>0.021</td><td>6.4%</td><td>Small</td><td><span class="by">REJECT H₀</span></td></tr>
+        <tr><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿</td><td>Economic Index × Total Club UEFA</td><td class="rn">−0.398</td><td>—</td><td>15.8%</td><td>Medium (neg)</td><td><span class="bn">KEEP H₀</span></td></tr>
+        <tr><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿</td><td>Economic Index × National Team</td><td class="rp">+0.240</td><td>0.028</td><td>5.8%</td><td>Small</td><td><span class="by">REJECT H₀</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;color:#6e7681;margin-top:10px;">OLS regression (Turkey – Club Success): R² = 0.609, Adj. R² = 0.589, F = 31.13, p &lt; 0.001</p>
+</section>
+
+<section id="conclusions">
+  <div class="eyebrow">06 · Conclusions</div>
+  <h2>What Did <span class="a">We Find?</span></h2>
+  <div class="card fade" style="margin-bottom:28px;">
+    <p>This project set out to answer one question: does a country's economic performance shape how its football clubs perform on the European stage? After 31 years of data, across two countries, nine hypothesis tests, and four machine learning models, the answer is: <strong style="color:#e6edf3">yes — but it depends heavily on which country you are looking at.</strong></p>
+    <p>For Turkey, the link is real and statistically significant. A healthier Turkish economy — lower inflation, stronger lira, higher GDP growth — correlates meaningfully with better UEFA results. The OLS model explains 60.9% of the variance in Turkish club performance, a remarkably strong result for a macroeconomic predictor in sport. The golden eras of Galatasaray (2000 UEFA Cup), Beşiktaş (2017/18 UCL group leader), and the national team (2002 World Cup 3rd place) all align with periods of relative stability — and the numbers confirm what the eye already suspected.</p>
+    <p>For England, the story is entirely different. The Premier League's global television deals, foreign sovereign wealth ownership, and near-total financial independence from the UK domestic economy mean that a strong pound does not translate into better UEFA results. The model predicts country of origin with 100% accuracy — confirming these two football ecosystems operate on fundamentally different economic logic.</p>
+    <p>The most striking single finding: <strong style="color:#f85149">inflation carries the strongest signal (r = −0.590)</strong>. Hyperinflation, as Turkey experienced in the 1990s, systematically destroys a club's ability to recruit and retain talent. When prices double every year, a transfer budget agreed in January is worth half as much by July. No economic factor erodes football competitiveness faster.</p>
+  </div>
+  <div class="cg">
+    <div class="cc fade"><div class="ci">✅</div><h3>H₁ Supported for Turkey</h3><p>r = +0.225, p = 0.037. Economic health positively correlates with Turkish club UEFA performance. The null hypothesis is rejected at α = 0.05.</p></div>
+    <div class="cc fade"><div class="ci">❌</div><h3>H₁ Not Supported for England</h3><p>r = −0.398, p > 0.05. Premier League clubs operate independently of domestic economic conditions due to global revenue streams and foreign ownership.</p></div>
+    <div class="cc fade"><div class="ci">📉</div><h3>Inflation is the Key Driver</h3><p>The strongest single predictor across all tests. High inflation (r = −0.590) systematically destroys clubs' ability to invest in talent, regardless of other economic conditions.</p></div>
+    <div class="cc fade"><div class="ci">🤖</div><h3>ML Confirms the Gap</h3><p>The model distinguishes Turkey from England with 100% accuracy — the two countries exist in completely separate economic-football spaces. Combined accuracy: 90.7%.</p></div>
+    <div class="cc fade"><div class="ci">📊</div><h3>Economy Explains 61% of Variance</h3><p>OLS regression R² = 0.609 for Turkey. Three economic variables together explain nearly two-thirds of the variance in Turkish club UEFA performance.</p></div>
+    <div class="cc fade"><div class="ci">🔮</div><h3>Future: More Countries</h3><p>Extending to Germany, Spain, and France with Transfermarkt squad value data would allow a true multi-country panel — the logical next step for this research.</p></div>
+  </div>
+</section>
+
+
+<section id="explorer">
+  <div class="eyebrow">07 · Interactive Explorer</div>
+  <h2>Explore the <span class="a">Data</span></h2>
+  <p class="sdesc">Filter and compare economic and football performance data across Turkey and England. Click the buttons to switch views.</p>
+
+  <div class="card fade" style="padding:28px;">
+    <div style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;">
+      <button onclick="showChart('econ')" id="btn-econ" class="xbtn active">📈 Economic Index</button>
+      <button onclick="showChart('clubs')" id="btn-clubs" class="xbtn">⚽ Club UEFA Points</button>
+      <button onclick="showChart('nat')" id="btn-nat" class="xbtn">🏳️ National Teams</button>
+      <button onclick="showChart('corr')" id="btn-corr" class="xbtn">🔗 Correlations</button>
+    </div>
+    <canvas id="mainChart" height="90"></canvas>
+    <p id="chart-caption" style="font-size:12px;color:#6e7681;margin-top:12px;text-align:center;"></p>
+  </div>
+</section>
+
+<section id="limitations">
+  <div class="eyebrow">08 · Limitations &amp; Future Work</div>
+  <h2>What Could <span class="a">Be Better?</span></h2>
+  <ul class="ll">
+    <li>N = 64 per country is below ideal for ML. Combined N = 128 partially addresses this (flagged by instructor Neşe Hoca).</li>
+    <li>GDP and CPI are annual figures assigned to both half-years of the same year, reducing temporal granularity.</li>
+    <li>Per-club half-year UEFA points are estimates reconstructed from archival data; should be verified against primary UEFA sources.</li>
+    <li>Confounders not captured: manager changes, transfer policy, club ownership changes, and individual player quality.</li>
+    <li>Future work could incorporate Transfermarkt squad value data — a direct monetary measure of club investment.</li>
+    <li>Extending to Germany, Spain, and France would enable a true multi-country panel analysis with much larger N.</li>
+  </ul>
+</section>
+
+<section id="sources">
+  <div class="eyebrow">09 · Sources</div>
+  <h2>Where the <span class="a">Data Came From</span></h2>
+  <div class="sg">
+    <div class="sc fade"><h4>USD/TRY Exchange Rate</h4><p>Central Bank of Turkey (TCMB EVDS)<br>evds2.tcmb.gov.tr</p></div>
+    <div class="sc fade"><h4>GBP/USD Exchange Rate</h4><p>Bank of England<br>bankofengland.co.uk</p></div>
+    <div class="sc fade"><h4>GDP Growth &amp; CPI</h4><p>World Bank Open Data<br>data.worldbank.org</p></div>
+    <div class="sc fade"><h4>UEFA Club Coefficients</h4><p>UEFA.com / rsssf.org<br>kassiesa.net/uefa/coeff</p></div>
+    <div class="sc fade"><h4>FIFA World Rankings</h4><p>FIFA Historical Archive<br>fifa.com</p></div>
+    <div class="sc fade"><h4>Code &amp; Dataset</h4><p>github.com/MuhammedGunes54/<br>DSA-210-Project</p></div>
+  </div>
+  <div class="disc fade">
+    <h4>⚡ AI Tool Disclosure</h4>
+    <p>This project used Claude (Anthropic) as an AI assistant for refactoring Python code, preparing the dataset, generating the composite economic index formula, and building this webpage. All analytical decisions and interpretation of results were made by the student. Usage is documented in the GitHub commit history as required by DSA 210 academic integrity guidelines.</p>
+  </div>
+</section>
+
+<footer>
+  <div><strong>Economic Prosperity &amp; Football Success: Turkey &amp; England (1993–2024)</strong><br>DSA 210 · Introduction to Data Science · Spring 2026 · Sabancı University</div>
+  <div style="text-align:right"><strong>Muhammed Mustafa Güneş</strong><br>Student ID: 34313</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('in'); }), {threshold:0.1});
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+const bo = new IntersectionObserver(e => {
+  e.forEach(x => {
+    if(x.isIntersecting) {
+      x.target.querySelectorAll('.bfill').forEach(b => {
+        const w = b.getAttribute('data-w');
+        b.style.width = '0%';
+        setTimeout(() => { b.style.width = w + '%'; }, 200);
+      });
+    }
+  });
+}, {threshold:0.3});
+document.querySelectorAll('.mlc').forEach(el => bo.observe(el));
+
+const secs = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if(window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  links.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#'+cur); });
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const years = ['93H1','93H2','94H1','94H2','95H1','95H2','96H1','96H2','97H1','97H2',
+  '98H1','98H2','99H1','99H2','00H1','00H2','01H1','01H2','02H1','02H2',
+  '03H1','03H2','04H1','04H2','05H1','05H2','06H1','06H2','07H1','07H2',
+  '08H1','08H2','09H1','09H2','10H1','10H2','11H1','11H2','12H1','12H2',
+  '13H1','13H2','14H1','14H2','15H1','15H2','16H1','16H2','17H1','17H2',
+  '18H1','18H2','19H1','19H2','20H1','20H2','21H1','21H2','22H1','22H2',
+  '23H1','23H2','24H1','24H2'];
+
+const trEcon = [0.92,0.91,0.60,0.58,0.64,0.63,0.65,0.64,0.66,0.65,0.67,0.66,0.55,0.54,
+  0.72,0.71,0.48,0.46,0.69,0.68,0.74,0.73,0.83,0.82,0.84,0.83,0.81,0.80,
+  0.82,0.81,0.82,0.81,0.74,0.73,0.79,0.78,0.80,0.79,0.77,0.76,0.78,0.77,
+  0.74,0.73,0.71,0.70,0.69,0.68,0.65,0.64,0.58,0.57,0.53,0.52,0.51,0.50,
+  0.49,0.48,0.22,0.21,0.24,0.23,0.20,0.19];
+
+const engEcon = [0.55,0.54,0.58,0.59,0.57,0.56,0.55,0.56,0.62,0.61,0.63,0.64,0.60,0.59,
+  0.64,0.63,0.60,0.59,0.61,0.62,0.66,0.67,0.72,0.73,0.74,0.70,0.71,0.73,
+  0.74,0.75,0.74,0.64,0.55,0.60,0.58,0.59,0.61,0.60,0.59,0.61,0.58,0.62,
+  0.64,0.60,0.58,0.57,0.57,0.47,0.48,0.50,0.52,0.48,0.50,0.49,0.40,0.43,
+  0.53,0.52,0.50,0.44,0.46,0.47,0.47,0.48];
+
+const trTotal = [2,2,2,4,4,6,6,4,6,8,10,6,18,14,20,12,12,12,12,12,12,14,14,14,
+  16,14,14,16,14,16,16,14,10,14,14,16,14,16,14,18,16,14,16,14,14,16,14,16,
+  14,16,14,14,16,18,12,16,14,18,14,18,18,22,20,20];
+
+const engTotal = [18,14,22,20,24,24,26,26,30,30,30,30,32,38,38,40,40,36,38,38,
+  40,40,44,46,42,44,46,46,52,54,56,46,44,42,44,42,44,44,46,46,52,52,54,48,
+  50,50,54,52,56,58,62,58,62,56,46,48,54,58,62,60,62,58,62,56];
+
+const trNat = [150,149,145,148,156,152,156,157,160,162,164,165,166,168,170,171,
+  172,173,174,186,182,180,178,176,175,177,176,176,174,172,173,171,169,170,
+  168,169,165,162,164,162,160,158,156,154,152,150,148,146,144,147,149,145,
+  162,164,166,167,158,158,155,153,151,149,172,170];
+
+const engNat = [182,181,183,182,184,183,185,184,186,187,188,188,187,186,187,186,
+  187,186,188,190,182,189,190,189,188,189,190,188,189,188,188,187,187,186,
+  187,186,184,183,183,182,182,183,185,186,186,185,187,186,187,188,188,187,
+  186,185,185,184,185,186,185,184,185,184,187,186];
+
+const corrData = {
+  labels: ['Econ×Club(TR)','Econ×Nat(TR)','USD/TRY×Club','Inflation×Club','Econ×GS','Econ×BJK','Econ×FB','Econ×Club(ENG)','Econ×Nat(ENG)'],
+  r: [0.225, 0.166, 0.428, -0.590, -0.059, 0.312, 0.254, -0.398, 0.240]
+};
+
+let chart = null;
+const captions = {
+  econ: 'Composite Economic Health Index (0=bad, 1=good) — Turkey vs England, 1993–2024',
+  clubs: 'Total Club UEFA Points per half-year — Turkey (4 clubs) vs England (Big 6), 1993–2024',
+  nat: 'National Team FIFA Success Index (higher = better ranking) — Turkey vs England, 1993–2024',
+  corr: 'Pearson correlation coefficients — green = positive, red = negative. Dashed line at r=0.'
+};
+
+function showChart(type) {
+  document.querySelectorAll('.xbtn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + type).classList.add('active');
+  document.getElementById('chart-caption').textContent = captions[type];
+
+  if (chart) { chart.destroy(); chart = null; }
+
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  Chart.defaults.color = '#8b949e';
+  Chart.defaults.borderColor = '#21262d';
+
+  if (type === 'corr') {
+    chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: corrData.labels,
+        datasets: [{
+          label: 'Pearson r',
+          data: corrData.r,
+          backgroundColor: corrData.r.map(v => v >= 0 ? 'rgba(63,185,80,0.7)' : 'rgba(248,81,73,0.7)'),
+          borderColor: corrData.r.map(v => v >= 0 ? '#3fb950' : '#f85149'),
+          borderWidth: 1, borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true, indexAxis: 'y',
+        plugins: { legend: { display: false }, tooltip: { callbacks: {
+          label: ctx => ' r = ' + ctx.raw.toFixed(3)
+        }}},
+        scales: {
+          x: { grid: { color: '#21262d' }, min: -0.7, max: 0.7,
+               ticks: { callback: v => v.toFixed(1) } },
+          y: { grid: { color: '#21262d' }, ticks: { font: { size: 11 } } }
+        }
+      }
+    });
+    return;
+  }
+
+  const configs = {
+    econ: {
+      datasets: [
+        { label: '🇹🇷 Turkey Econ Index', data: trEcon, borderColor: '#f0883e', backgroundColor: 'rgba(240,136,62,0.1)', tension: 0.3, pointRadius: 0, fill: true },
+        { label: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 England Econ Index', data: engEcon, borderColor: '#58a6ff', backgroundColor: 'rgba(88,166,255,0.1)', tension: 0.3, pointRadius: 0, fill: true }
+      ]
+    },
+    clubs: {
+      datasets: [
+        { label: '🇹🇷 Turkey Club UEFA pts', data: trTotal, borderColor: '#f0883e', backgroundColor: 'rgba(240,136,62,0.1)', tension: 0.3, pointRadius: 0, fill: true },
+        { label: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 England Club UEFA pts', data: engTotal, borderColor: '#58a6ff', backgroundColor: 'rgba(88,166,255,0.1)', tension: 0.3, pointRadius: 0, fill: true }
+      ]
+    },
+    nat: {
+      datasets: [
+        { label: '🇹🇷 Turkey FIFA Index', data: trNat, borderColor: '#f0883e', backgroundColor: 'rgba(240,136,62,0.1)', tension: 0.3, pointRadius: 0, fill: true },
+        { label: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 England FIFA Index', data: engNat, borderColor: '#58a6ff', backgroundColor: 'rgba(88,166,255,0.1)', tension: 0.3, pointRadius: 0, fill: true }
+      ]
+    }
+  };
+
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: { labels: years, datasets: configs[type].datasets },
+    options: {
+      responsive: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { labels: { color: '#c9d1d9', font: { size: 12 } } },
+        tooltip: { backgroundColor: '#161b22', borderColor: '#30363d', borderWidth: 1,
+          titleColor: '#e6edf3', bodyColor: '#c9d1d9' }
+      },
+      scales: {
+        x: { grid: { color: '#21262d' }, ticks: { maxTicksLimit: 16, font: { size: 10 } } },
+        y: { grid: { color: '#21262d' }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => showChart('econ'));
+</script>
+
+</body>
+</html>
